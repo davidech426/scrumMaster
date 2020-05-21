@@ -1,2 +1,2 @@
-# scrumMaster 
+# scrumMaster
 # Hello
