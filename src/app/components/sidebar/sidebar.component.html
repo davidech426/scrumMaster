@@ -1,0 +1,30 @@
+<mat-sidenav-container class="example-container">
+  <mat-sidenav #sidenav mode="side" opened>
+    <div class="sidenav-header">
+        <img src="https://i.pinimg.com/736x/dc/f4/d9/dcf4d97eec963dfbe6de815a7ca60910--cosmetic-logo-logo-m.jpg" alt="SM" height="28px" width="28px" style="vertical-align: text-top">
+        <span id="username">{{username}}</span><br>
+    </div>
+    
+    <div cdkDropList id="example-list" (cdkDropListDropped)="drop($event)">
+        <div class="example-box" (click)="switchToPage(menu_options[0])" cdkDrag>{{menu_options[0]}} <div *ngIf="menu_options[0] === 'Notifications' && (notifications | async)?.length != 0">!</div></div>
+        <div class="example-box" (click)="switchToPage(menu_options[1])" cdkDrag>{{menu_options[1]}} <div *ngIf="menu_options[1] === 'Notifications' && (notifications | async)?.length != 0">!</div></div>
+        <div class="example-box" (click)="switchToPage(menu_options[2])" cdkDrag>{{menu_options[2]}} <div *ngIf="menu_options[2] === 'Notifications' && (notifications | async)?.length != 0">!</div></div>
+        <div class="example-box" (click)="switchToPage(menu_options[3])" cdkDrag>{{menu_options[3]}} <div *ngIf="menu_options[3] === 'Notifications' && (notifications | async)?.length != 0">!</div></div>
+        <div class="example-box" (click)="switchToPage(menu_options[4])" cdkDrag>{{menu_options[4]}} <div *ngIf="menu_options[4] === 'Notifications' && (notifications | async)?.length != 0">!</div></div>
+        <div class="example-box" (click)="switchToPage(menu_options[5])" cdkDrag>{{menu_options[5]}} <div *ngIf="menu_options[5] === 'Notifications' && (notifications | async)?.length != 0">!</div></div>
+    </div>
+  </mat-sidenav>
+  
+  <mat-sidenav-content>
+    <button (click)="sidenav.toggle()" id="hamburger-button">
+        <div class="hamburger-menu"></div>
+        <div class="hamburger-menu"></div>
+        <div class="hamburger-menu"></div>
+    </button>
+    <span id="page-title">scrumMaster</span>
+    <div class="search-bar">
+        <input matInput class="search" type="text" placeholder="Search">
+    </div>
+    <app-header [option]="this.option" [project_id]="this.project_id"></app-header>
+  </mat-sidenav-content>
+</mat-sidenav-container>

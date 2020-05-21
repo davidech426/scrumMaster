@@ -1,0 +1,16 @@
+<carousel itemsPerSlide="1">
+  <slide *ngFor="let slide of currentUserProjects | async">
+      <div class="text-center py-5 bg-dark text-white">
+        <h2>{{ slide.name }}</h2>
+        <div>
+          <h3>{{ slide.description }}</h3>
+          <button mat-raised-button (click)="this.goToProject(slide.id)">Go to project!</button>
+        </div>
+      </div>
+  </slide>
+</carousel>
+
+<button mat-raised-button (click)="addTeamAndProject()" class="add-team-project-button">Add New Project</button>
+
+
+<div *ngFor="let blah of currentUserRoles | async"></div>

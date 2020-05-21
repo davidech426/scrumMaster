@@ -1,0 +1,29 @@
+<h1 mat-dialog-title>Add Member</h1>
+<div mat-dialog-content>
+  <p>Add a member to this project</p>
+ 
+  <mat-form-field style="width:400px !important">
+    <mat-label>Add this member to team for a developer role...</mat-label>
+    <input type="Text" placeholder="Pick One" aria-label="Number" matInput [matAutocomplete]="auto">
+    <mat-autocomplete #auto="matAutocomplete" (optionSelected)=getUserName($event.option.value)>
+      <mat-option *ngFor="let member of members" [value]="member.email" >
+        {{member.first_name}} {{member.last_name}}
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+
+  <mat-form-field style="width:400px !important">
+    <mat-label>Auto fill user's identification</mat-label>
+    <input type="Text" placeholder="Will autofill" aria-label="Number" matInput [matAutocomplete]="auto" [(ngModel)]="data.id">
+  </mat-form-field>
+
+  <mat-form-field style="width:400px !important">
+    <mat-label>Auto fill user's full name</mat-label>
+    <input type="Text" placeholder="Will autofill" aria-label="Number" matInput [matAutocomplete]="auto" [(ngModel)]="data.name">
+  </mat-form-field>
+  
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Cancel</button>
+  <button mat-button [mat-dialog-close]="data" cdkFocusInitial>Add Member to Project</button>
+</div>

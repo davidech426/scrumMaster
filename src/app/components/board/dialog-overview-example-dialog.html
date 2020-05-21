@@ -1,0 +1,26 @@
+<h1 mat-dialog-title>Add Task</h1>
+<div mat-dialog-content>
+  <p>Add a task to this project</p>
+  <mat-form-field style="width:400px !important">
+    <input matInput [(ngModel)]="data.task">
+  </mat-form-field>
+  <!--The following form field should only bee visible to PMs and SMs-->
+  <div *ngIf="isPriorityMember()">
+  <mat-form-field style="width:400px !important">
+    <mat-label>Assign task to...</mat-label>
+    <input type="Text" placeholder="Pick One" aria-label="Number" matInput [matAutocomplete]="auto" [(ngModel)]="data.assignee">
+    <mat-autocomplete #auto="matAutocomplete">
+      <mat-option *ngFor="let member of members" [value]="member.user_name">
+        {{member.user_name}}
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+</div>
+  <mat-form-field style="width:400px !important">
+    <input matInput [(ngModel)]="data.due" type="datetime-local" placeholder="due date">
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Cancel</button>
+  <button mat-button [mat-dialog-close]="data" cdkFocusInitial>Add Task to To Do</button>
+</div>

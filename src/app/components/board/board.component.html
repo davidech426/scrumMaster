@@ -1,0 +1,131 @@
+<button mat-raised-button (click)="openDialog()" class="add-task-button">Add Task</button>
+<div id="project-name-title">Project Name</div>
+<div class="scrum-board" id="scrum-board">
+    <div class="card-container card-container-col">
+        <div class="todo">
+            <mat-card class="card-with-list">
+                <mat-card-header class="card-header">
+                    <div mat-card-avatar class="example-header-image"></div>
+                    <mat-card-title>To Do</mat-card-title>
+                    <mat-card-subtitle></mat-card-subtitle>
+                </mat-card-header>
+
+                <mat-card-content class="card-content">
+
+                    <div
+                    cdkDropList
+                    #todoList="cdkDropList"
+                    [cdkDropListData]="todo"
+                    [cdkDropListConnectedTo]="[inProgressList, doneList]"
+                    class="inner-card-list"
+                    (cdkDropListDropped)="drop($event)">
+
+                        <mat-card class="inner-card" *ngFor="let task of todo" cdkDrag>
+                            <mat-card-header>
+                                <mat-card-title>{{ task.description }}</mat-card-title>
+                                <mat-card-subtitle>{{ task.assignee_name }}</mat-card-subtitle>
+                            </mat-card-header>
+
+                            <mat-card-content>
+    
+                                <button mat-button [matMenuTriggerFor]="menu">
+                                    <mat-icon aria-hidden="false">more_vert</mat-icon>
+                                </button>
+                                <mat-menu #menu="matMenu">
+                                  <button mat-menu-item>Edit</button>
+                                  <button mat-menu-item (click)="deleteTask(task.id,task.status)">Delete</button>
+                                </mat-menu>
+                           </mat-card-content>
+                        </mat-card>
+
+                    </div>
+                </mat-card-content>
+            </mat-card>
+        </div>
+    </div>
+
+    <div class="card-container card-container-col">
+        <div class="todo">
+            <mat-card class="card-with-list">
+                <mat-card-header>
+                    <div mat-card-avatar class="example-header-image"></div>
+                    <mat-card-title>In Progress</mat-card-title>
+                    <mat-card-subtitle></mat-card-subtitle>
+                </mat-card-header>
+
+                <mat-card-content class="card-content">
+
+                    <div
+                    cdkDropList
+                    #inProgressList="cdkDropList"
+                    [cdkDropListData]="inProgress"
+                    [cdkDropListConnectedTo]="[todoList, doneList]"
+                    class="inner-card-list"
+                    (cdkDropListDropped)="drop($event)">
+                    <mat-card class="inner-card" *ngFor="let task of inProgress" cdkDrag>
+                        <mat-card-header>
+                            <mat-card-title>{{ task.description }}</mat-card-title>
+                            <mat-card-subtitle>{{ task.assignee_name }}</mat-card-subtitle>
+                        </mat-card-header>
+
+                        <mat-card-content>
+                            
+                            <button mat-button [matMenuTriggerFor]="menu">
+                                <mat-icon aria-hidden="false">more_vert</mat-icon>
+                            </button>
+                            <mat-menu #menu="matMenu">
+                              <button mat-menu-item>Edit</button>
+                              <button mat-menu-item (click)="deleteTask(task.id,task.status)">Delete</button>
+                            </mat-menu>
+                       </mat-card-content>
+                    </mat-card>
+                    </div>
+
+                </mat-card-content>
+
+            </mat-card>
+        </div>
+    </div>
+
+    <div class="card-container card-container-col">
+        <div class="todo">
+            <mat-card class="card-with-list">
+                <mat-card-header>
+                    <div mat-card-avatar class="example-header-image"></div>
+                    <mat-card-title>Done</mat-card-title>
+                    <mat-card-subtitle>Open issues.</mat-card-subtitle>
+                </mat-card-header>
+                <mat-card-content class="card-content">
+                    <div
+                    cdkDropList
+                    #doneList="cdkDropList"
+                    [cdkDropListData]="done"
+                    [cdkDropListConnectedTo]="[todoList, inProgressList]"
+                    class="inner-card-list"
+                    (cdkDropListDropped)="drop($event)">
+                    <mat-card class="inner-card" *ngFor="let task of done" cdkDrag>
+                        <mat-card-header>
+                            <mat-card-title>{{ task.description }}</mat-card-title>
+                            <mat-card-subtitle>{{ task.assignee_name }}</mat-card-subtitle>
+                        </mat-card-header>
+
+                        <mat-card-content>
+                        
+                            <button mat-button [matMenuTriggerFor]="menu">
+                                <mat-icon aria-hidden="false">more_vert</mat-icon>
+                            </button>
+                            <mat-menu #menu="matMenu">
+                              <button mat-menu-item>Edit</button>
+                              <button mat-menu-item (click)="deleteTask(task.id,task.status)">Delete</button>
+                            </mat-menu>
+                       </mat-card-content>
+                    </mat-card>
+                        
+
+                    </div>
+                </mat-card-content>
+            </mat-card>
+        </div>
+    </div>
+
+</div>

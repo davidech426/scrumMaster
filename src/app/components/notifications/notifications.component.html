@@ -1,0 +1,21 @@
+<mat-accordion class="example-headers-align">
+  <mat-expansion-panel hideToggle *ngFor="let current of notifications | async">
+      <mat-expansion-panel-header>
+          <mat-panel-title>
+              {{ current.title }}
+          </mat-panel-title>
+
+          <mat-panel-description>
+              {{ current.date.toDate() }}
+          <mat-icon *ngIf="current.dismissed == false">notification_important</mat-icon>
+          </mat-panel-description>
+      </mat-expansion-panel-header>
+
+      <mat-panel-description>
+          {{ current.content }}
+          <button mat-stroked-button *ngIf="current.dismissed == false" (click)="markAsRead(current.id)">Mark as read.</button>
+          <button mat-stroked-button *ngIf="current.dismissed == true" (click)="markAsUnread(current.id)">Mark as unread.</button>
+      </mat-panel-description>
+
+  </mat-expansion-panel>
+</mat-accordion>

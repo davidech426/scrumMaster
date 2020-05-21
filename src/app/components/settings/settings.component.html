@@ -1,0 +1,30 @@
+<div id="settings-board" class="settings-board">
+    <mat-card-content>
+        <mat-card-content>
+            <b>Full Name:</b><br>
+            {{fullname}}<br><br>
+            
+            <b>Email:</b><br>
+            {{email}}<br>
+            
+            <!-- Need to transition to a per project basis
+            <b>User Types:</b>
+            <section id="user-types">
+                <form>
+                    <section *ngFor="let item of items">
+                            <span class="entry" *ngIf="item.selected">
+                                <input type="radio" name="user-type" (change)="recordChanges(item.label)" checked="checked">{{item.label}}<br>
+                            </span>
+                            <span class="entry" *ngIf="!item.selected">
+                                <input type="radio" name="user-type" (change)="recordChanges(item.label)">{{item.label}}<br>
+                            </span>
+                    </section><br>
+                    
+                    <button mat-raised-button (click)="submitChanges()">Save Changes</button>
+                </form>
+            </section> -->
+        </mat-card-content>
+    </mat-card-content>
+    
+    <label></label>
+</div>

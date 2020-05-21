@@ -1,0 +1,85 @@
+- Components
+    - Authenticated-View
+        - authenticated-view.component.ts - Controller
+        - authenticated-view.component.spec.ts - Controller
+        - authenticated-view.component.css - View
+        - authenticated-view.component.html - View
+    - Board
+        - board.component.css - View
+        - board.component.html - View
+        - dialog-overview-example-dialog.html - View
+        - modal.component.ts - Controller
+        - board.component.ts - Controller
+        - board.component.spec.ts
+    - Calendar 
+        - calendar.component.css - View
+        - calendar.component.html - View
+        - calendar.component.ts - Controller
+        - calendar.component.spec.ts - Controller
+    - Current Project View
+        - current-project-view.component.ts - Controller
+        - current-project-view.component.spec.ts - Controller
+        - current-project-view.component.css - View
+        - current-project-view.component.html - View
+    - Daily Scrum
+        - daily-scrum.component.ts - Controller
+        - daily-scrum.component.spec.ts - Controller
+        - daily-scrum.component.css - View
+        - daily-scrum.component.html - View
+    - Header:
+        - header.component.ts - Controller
+        - header.component.spec.ts - Controller
+        - header.component.css - View
+        - header.component.html - View
+    - Members List:
+        - members-list.component.ts - Controller
+        - members-list.component.spec.ts - Controller
+        - modal-member.component.ts - Controller
+        - modal-member.components.ts - Controller
+        - members-list.component.css - View
+        - members-list.component.html - View
+        - modal-member.html - View
+    - Notifications
+        - notifications.component.css - View
+        - notifications.component.html - View
+        - notifications.component.ts - Controller
+        - notifications.componernt.spec.ts
+    - Project Carousel
+        - project-carousel.component.css - View
+        - project-carousel.component.html - View
+        - project-carousel.component.ts - Controller
+        - project-carousel.componernt.spec.ts
+    - Settings
+        - settings.component.css - View
+        - settings.component.html - View
+        - settings.component.ts - Controller
+        - settings.componernt.spec.ts
+    - Sidebar
+        - sidebar.component.css - View
+        - sidebar.component.html - View
+        - sidebar.component.ts - Controller
+        - sidebar.componernt.spec.ts
+    - Task List
+        - task-list.component.css - View
+        - task-list.component.html - View
+        - task-list.component.ts - Controller
+        - task-list.componernt.spec.ts
+    - Team Project Creation
+        - team-project-creation.component.css - View
+        - team-project-creation.component.html - View
+        - team-project-creation.component.ts - Controller
+        - team-project-creation.componernt.spec.ts
+- Material
+    - material.module.ts - Controller
+- Model Files
+    - database.model.ts
+    - project.models.ts
+    - task.model.ts
+    - team_user_project_role.model.ts
+    - team.model.ts
+- Environments
+    - environment.prod.ts - Controller
+    - environment.ts - Controller
+
+
+- Possible Extensions

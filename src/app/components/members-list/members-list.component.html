@@ -1,0 +1,19 @@
+<mat-accordion class="example-headers-align">
+    <mat-expansion-panel hideToggle *ngFor="let member of memberList">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          {{member.user_name}}
+        </mat-panel-title>
+        <mat-panel-description>
+          {{member.role}}
+          <mat-icon>account_circle</mat-icon>
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <mat-panel-description>
+         
+      </mat-panel-description>
+    </mat-expansion-panel>
+</mat-accordion>
+
+
+<button mat-raised-button (click)="openDialog()" class="add-member-button">Add New Member</button>

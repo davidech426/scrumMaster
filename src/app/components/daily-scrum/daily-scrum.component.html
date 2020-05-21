@@ -1,0 +1,48 @@
+<div class="daily-scrum">
+    <mat-card-content>
+        <mat-card-content>
+            <mat-tab-group [selectedIndex]="selectedIndex">
+                <mat-tab *ngFor="let user of users" label="{{user}}">
+                    <br>
+                    <b>Team Member:</b>
+                    {{user}}<br><br>
+                    
+                    <mat-form-field class="text-area">
+                        <textarea matInput placeholder="Since the Last Meeting" id="last_meeting"></textarea>
+                    </mat-form-field><br>
+                    
+                    <mat-form-field class="text-area">
+                        <textarea matInput placeholder="Before the Next Meeting" id="next_meeting"></textarea>
+                    </mat-form-field><br>
+                    
+                    <mat-form-field class="text-area">
+                        <textarea matInput placeholder="Biggest Impediments" id="big_prob"></textarea>
+                    </mat-form-field><br>
+                    
+                    <button mat-raised-button class="form-button" (click)="nextTab()">Next</button>
+                    <button mat-raised-button class="form-button" (click)="saveScrum(user)">Submit</button>
+                </mat-tab>
+            </mat-tab-group><br>    
+        </mat-card-content>
+    </mat-card-content>
+</div>
+<div class="daily-scrum">
+   <mat-card-content>
+        <mat-card-content>
+            <b>Scrum Schedule</b><br><br>
+            <mat-form-field class="date-picker">
+                <input matInput [matDatepicker]="picker" placeholder="Start Date" (dateInput)="saveDate('date1', $event)" (dateChange)="saveDate('date1', $event)">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+            
+            <mat-form-field class="date-picker">
+                <input matInput [matDatepicker]="picker2" placeholder="End Date" (dateInput)="saveDate('date2', $event)" (dateChange)="saveDate('date2', $event)">
+                <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+                <mat-datepicker #picker2></mat-datepicker>
+            </mat-form-field>
+            
+            <button mat-raised-button (click)="saveSchedule()">Save Schedule</button>
+        </mat-card-content>
+    </mat-card-content>
+</div>

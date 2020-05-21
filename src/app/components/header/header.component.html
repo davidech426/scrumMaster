@@ -1,0 +1,75 @@
+<nav class="header-right-home" id="header-right-home" style="display: none;">
+    <mat-tab-group>
+        <mat-tab label="Home" disabled>
+
+            Home content.
+
+        </mat-tab>
+    </mat-tab-group>
+</nav>
+
+<nav class="header-right" id="header-right">
+
+    <div *ngIf="this.option == 'default-view'; else elseBlock">
+        <app-projects-carousel></app-projects-carousel>
+
+    </div>
+    <ng-template #elseBlock>
+        <mat-tab-group>
+        <mat-tab label="Issue Board">
+            <app-board [project_id]="this.project_id"></app-board>
+
+            <button mat-raised-button (click)="this.goToAllProjects()">Go to all projects.</button>
+        </mat-tab>
+        <mat-tab label="MyTasks">
+            <app-task-list [project_id]="this.project_id"></app-task-list>
+        </mat-tab>
+        <mat-tab label="Members">
+            <app-members-list [project_id]="this.project_id"></app-members-list>
+        </mat-tab>
+        <!-- Available to Scrum masters only -->
+        <mat-tab label="Daily Scrum">
+            <app-daily-scrum [project_id]="this.project_id"></app-daily-scrum>
+        </mat-tab>
+        <!--
+        <span *ngIf="!is_scrumMaster">
+        <mat-tab label="Daily Scrum" disabled>
+        <app-daily-scrum></app-daily-scrum>
+        </mat-tab>
+        </span>
+        <span *ngIf="is_scrumMaster">
+        <mat-tab label="Daily Scrum">
+        <app-daily-scrum></app-daily-scrum>
+        </mat-tab>
+        </span>
+        -->
+        </mat-tab-group>
+    </ng-template>
+
+</nav>
+
+
+<nav class="header-right-calendar" id="header-right-calendar" style="display: none;">
+    <mat-tab-group>
+        <mat-tab label="Calendar" disabled>
+            <app-calendar></app-calendar>
+        </mat-tab>
+    </mat-tab-group>
+</nav>
+
+<nav class="header-right-notifications" id="header-right-notifications" style="display: none;">
+    <mat-tab-group>
+        <mat-tab label="Notifications" disabled>
+            <app-notifications></app-notifications>
+        </mat-tab>
+    </mat-tab-group>
+</nav>
+
+
+<nav class="header-right-settings" id="header-right-settings" style="display: none;">
+    <mat-tab-group>
+        <mat-tab label="Account Settings" disabled>
+            <app-settings></app-settings>
+        </mat-tab>
+    </mat-tab-group>
+</nav>

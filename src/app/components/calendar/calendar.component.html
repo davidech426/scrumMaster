@@ -1,0 +1,46 @@
+<div *ngIf="displayCalendar">
+    <div class="col-md-3">
+        <div class="row text-center">
+            <mat-button-toggle-group name="fontStyle" aria-label="Font Style">
+              <mat-button-toggle (click)="setView('month')" [class.active]="view === 'month'">Month</mat-button-toggle>
+              <mat-button-toggle (click)="setView('week')" [class.active]="view === 'week'">Week</mat-button-toggle>
+              <mat-button-toggle (click)="setView('day')" [class.active]="view === 'day'">Day</mat-button-toggle>
+            </mat-button-toggle-group>
+        </div>
+    </div>
+
+    <div [ngSwitch]="view">
+        <mwl-calendar-month-view
+            *ngSwitchCase="'month'"
+            [viewDate]="viewDate"
+            [events]="events"
+            [refresh]="refresh"
+            [activeDayIsOpen]="activeDayIsOpen"
+            (dayClicked)="dayClicked($event.day)"
+            (eventClicked)="handleEvent('Clicked', $event.event)"
+            (eventTimesChanged)="eventTimesChanged($event)">
+        </mwl-calendar-month-view>
+
+        <mwl-calendar-week-view
+            *ngSwitchCase="'week'"
+            [viewDate]="viewDate"
+            [events]="events"
+            [refresh]="refresh"
+            (eventClicked)="handleEvent('Clicked', $event.event)"
+            (eventTimesChanged)="eventTimesChanged($event)">
+        </mwl-calendar-week-view>
+
+
+        <mwl-calendar-day-view
+            *ngSwitchCase="'day'"
+            [viewDate]="viewDate"
+            [events]="events"
+            [refresh]="refresh"
+            (eventClicked)="handleEvent('Clicked', $event.event)"
+            (eventTimesChanged)="eventTimesChanged($event)">
+        </mwl-calendar-day-view>
+    </div>
+</div>
+
+
+<div *ngFor="let blah of currentUserTasks | async"></div>
